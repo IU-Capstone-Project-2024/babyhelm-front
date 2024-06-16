@@ -1,15 +1,15 @@
 import React from 'react'
 import './header.css'
-import img from '../../assets/i (1) 1.png'
+import img from '../../assets/placeholder-1.png'
 
-function Header() {
+const Header = () =>  {
   return (
-    <div className='babyhelm__header'>
-        <div className='babyhelm__header-content'>
-          <h1>
+    <div className='babyhelm__header' id='home'>
+      <div className='babyhelm__header-content'>
+        <h1>
             Kubernetes hosting Create and Monitor Your Clusters Effortlessly
-          </h1>
-        <button>
+        </h1>
+        <button type='button'>
           <p>Get Started</p>
         </button>
       </div>

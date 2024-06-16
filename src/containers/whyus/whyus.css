@@ -1,0 +1,73 @@
+.babyhelm__why {
+    background-image: url('../../assets/background.png');
+    background-size: 100%;
+    background-repeat: no-repeat;
+}
+
+.babyhelm__why_title {
+    padding-top: 5%;
+    padding-bottom: 0%;
+    text-align: center;
+}
+
+.babyhelm__why_title h1 {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 48px;
+    font-weight: 500;
+    line-height: 58.09px;
+    text-shadow: 1px 2px 4px rgba(0,0,0,0.5);
+}
+
+.babyhelm__why_blocks {
+    display: flex;
+    flex-direction: inline;
+    justify-content: center;
+    align-items: center;
+    padding: 5% 17%;
+    gap: 7%;
+}
+
+.babyhelm__why_block {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 300px;
+}
+
+.babyhelm__why_block h1 {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 28px;
+    font-weight: 600;
+    line-height: 33.89px;
+    text-align: center;
+}
+
+.babyhelm__why_block p {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 29.05px;
+    text-align: center;
+    width: 300px;
+}
+
+.babyhelm__why_block img {
+    width: 150px;
+    height: 150px;
+}
+
+@media screen and (max-width: 1240px) {
+    .babyhelm__why_block img {
+        width: 100px;
+        height: 100px;
+    }
+
+    .babyhelm__why_block p {
+        font-size: 22px;
+        width: 240px;
+    }
+
+    .babyhelm__why_block h1 {
+         font-size: 24px;
+    }
+}

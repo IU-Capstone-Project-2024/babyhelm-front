@@ -1,6 +1,6 @@
 import React from 'react'
 import { NavBar } from './components'
-import { Header } from './containers'
+import { Header, Whyus } from './containers'
 
 function App() {
   return (
@@ -8,6 +8,7 @@ function App() {
       <div className="gradient__bg">
         <NavBar />
         <Header />
+        <Whyus />
       </div>
     </div>
   )

@@ -3,7 +3,7 @@ import './navbar.css'
 import logo from '../../assets/logo.svg'
 import unlock from '../../assets/unlock 1.svg'
 
-function NavBar() {
+const NavBar = () => {
   return (
     <div className="babyhelm__navbar">
       <div className='babyhelm__navbar_logo'>
