@@ -1,0 +1,109 @@
+.babyhelm__auth {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(3px);
+    display: flex;
+    justify-content: center;
+}
+
+
+.babyhelm__auth_content {
+    background: white;
+    margin: auto;
+    padding: 20px 75px;
+    border-radius: 30px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.babyhelm__auth_content .babyhelm__auth_login {
+    display: flex;
+    flex-direction: column;
+}
+
+.babyhelm__auth_content .babyhelm__auth_signup {
+    display: none;
+}
+
+.babyhelm__auth_content.active .babyhelm__auth_signup {
+    display: flex;
+    flex-direction: column;
+}
+
+.babyhelm__auth_content.active .babyhelm__auth_login {
+    display: none;
+}
+
+.babyhelm__auth_header {
+    display: flex;
+    justify-content: center;
+}
+
+.babyhelm__auth_header img{
+    height: 60px;
+    width: 60px;
+}
+
+.babyhelm__inputs {
+    padding-bottom: 20px;
+}
+
+.babyhelm__input {
+    font-size: 22px;
+    font-weight: 300;
+    line-height: 29.05px;
+    text-align: left;
+    padding: 10px 0px;
+}
+
+.babyhelm__input p{
+    margin-top: 3px;
+    margin-bottom: 3px;
+}
+
+.babyhelm__input input {
+    width: 350px;
+    height: 50px;
+    gap: 0px;
+    border-radius: 10px;
+    border: 1px;
+    opacity: 0px;
+    border: 1px solid #8194DA;
+    font-size: 18px;
+    text-align: center;
+}
+
+.babyhelm__forgot {
+    margin-top: 0px;
+    font-size: 18px;
+    font-weight: 300;
+    line-height: 21.78px;
+    text-align: left;
+}
+
+.babyhelm__auth-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.babyhelm__auth-button button {
+    padding: 20px;
+    border-radius: 30px;
+    border: 1px;
+    background: #7A4FF4;
+    color: #FFFFFF;
+    font-size: 20px;
+}
+
+.babyhelm__auth_acc {
+    text-align: center;
+}
+
+

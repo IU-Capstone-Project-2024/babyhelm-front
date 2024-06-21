@@ -3,7 +3,7 @@ import './navbar.css'
 import logo from '../../assets/logo.svg'
 import unlock from '../../assets/unlock 1.svg'
 
-const NavBar = () => {
+const NavBar = ( { toggleAuthModal } ) => {
   return (
     <div className="babyhelm__navbar">
       <div className='babyhelm__navbar_logo'>
@@ -13,9 +13,9 @@ const NavBar = () => {
           <a href="/">Babyhelm</a>
       </div>
       <div className='babyhelm__navbar-sign'>
-        <button type="button">
+        <button type="button" onClick={toggleAuthModal}>
           <img src={unlock} alt='unlock'/>
-          <p>Log in</p>
+          Log in
         </button>
       </div>
     </div>

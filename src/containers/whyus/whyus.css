@@ -11,7 +11,6 @@
 }
 
 .babyhelm__why_title h1 {
-    font-family: Arial, Helvetica, sans-serif;
     font-size: 48px;
     font-weight: 500;
     line-height: 58.09px;
@@ -35,7 +34,6 @@
 }
 
 .babyhelm__why_block h1 {
-    font-family: Arial, Helvetica, sans-serif;
     font-size: 28px;
     font-weight: 600;
     line-height: 33.89px;
@@ -43,7 +41,6 @@
 }
 
 .babyhelm__why_block p {
-    font-family: Arial, Helvetica, sans-serif;
     font-size: 24px;
     font-weight: 400;
     line-height: 29.05px;
@@ -57,6 +54,9 @@
 }
 
 @media screen and (max-width: 1240px) {
+    .babyhelm__why {
+        background-image:  url('../../assets/background-media.png');;
+    }
     .babyhelm__why_block img {
         width: 100px;
         height: 100px;

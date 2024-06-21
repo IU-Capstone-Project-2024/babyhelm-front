@@ -2,14 +2,14 @@ import React from 'react'
 import './header.css'
 import img from '../../assets/placeholder-1.png'
 
-const Header = () =>  {
+const Header = ( { toggleAuthModal } ) =>  {
   return (
     <div className='babyhelm__header' id='home'>
       <div className='babyhelm__header-content'>
         <h1>
             Kubernetes hosting Create and Monitor Your Clusters Effortlessly
         </h1>
-        <button type='button'>
+        <button type='button' onClick={toggleAuthModal}>
           <p>Get Started</p>
         </button>
       </div>
