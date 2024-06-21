@@ -27,18 +27,40 @@
     flex-direction: column;
 }
 
+.babyhelm__auth_content.signup .babyhelm__auth_login {
+    display: none;
+}
+
+.babyhelm__auth_content.email .babyhelm__auth_login {
+    display: none;
+}
+
 .babyhelm__auth_content .babyhelm__auth_signup {
     display: none;
 }
 
-.babyhelm__auth_content.active .babyhelm__auth_signup {
+.babyhelm__auth_content.signup .babyhelm__auth_signup {
     display: flex;
     flex-direction: column;
 }
 
-.babyhelm__auth_content.active .babyhelm__auth_login {
+.babyhelm__auth_content.email .babyhelm__auth_signup {
     display: none;
 }
+
+.babyhelm__auth_content .babyhelm__auth_email-confirm {
+    display: none;
+}
+
+.babyhelm__auth_content.signup .babyhelm__auth_email-confirm {
+    display: none;
+}
+
+.babyhelm__auth_content.email .babyhelm__auth_email-confirm {
+    display: flex;
+    flex-direction: column;
+}
+
 
 .babyhelm__auth_header {
     display: flex;
@@ -100,10 +122,32 @@
     background: #7A4FF4;
     color: #FFFFFF;
     font-size: 20px;
+    cursor: pointer;
 }
 
 .babyhelm__auth_acc {
     text-align: center;
 }
+
+.babyhelm__auth_email-confirm {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 350px;
+}
+
+.babyhelm__auth_email-confirm img{
+    width: 100px;
+    height: 100px;
+}
+
+.babyhelm__auth_email-confirm .babyhelm__auth_header{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
 
 
