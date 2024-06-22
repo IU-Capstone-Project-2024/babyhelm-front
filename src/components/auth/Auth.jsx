@@ -24,7 +24,7 @@ const Auth = ( { toggleAuthModal } ) => {
     }
 
     const submitLink = () => {
-        setAction(' email');
+        // setAction('');
     }
 
     const logInLink = () => {
