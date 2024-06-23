@@ -34,7 +34,10 @@ const Auth = ( { toggleAuthModal } ) => {
         
         try {
             const response = await axios.post('http://babyhelm-api-svc.taila53571.ts.net/users/registration', payload);
-            console.log('Response:', response.data);
+            console.log('Response status:', response.status);
+            if (response.status !== 200){
+                throw "Account exists"
+            }
         } catch (error) {
             console.error('Error:', error);
         }
