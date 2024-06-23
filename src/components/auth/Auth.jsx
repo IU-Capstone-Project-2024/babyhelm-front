@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react"
+import axios from "axios"
 import logo from "../../assets/logo.svg"
 import mail from "../../assets/mail 1.png"
 import "./auth.css"
@@ -23,9 +24,22 @@ const Auth = ( { toggleAuthModal } ) => {
         setAction(' signup');
     }
 
-    const submitLink = () => {
-        // setAction('');
-    }
+
+    const submitLink = async (e) => {
+        e.preventDefault();
+        const payload = {
+            email: account.email,
+            raw_password: account.password
+        };
+        
+        try {
+            const response = await axios.post('http://babyhelm-api-svc.taila53571.ts.net/users/registration', payload);
+            console.log('Response:', response.data);
+        } catch (error) {
+            console.error('Error:', error);
+        }
+    };
+
 
     const logInLink = () => {
         setAction('');
