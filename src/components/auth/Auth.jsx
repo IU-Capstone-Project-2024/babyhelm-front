@@ -25,7 +25,7 @@ const Auth = ( { toggleAuthModal } ) => {
     }
 
 
-    const submitLink = async (e) => {
+    const handleSignup = async (e) => {
         e.preventDefault();
         const payload = {
             email: account.email,
@@ -40,6 +40,24 @@ const Auth = ( { toggleAuthModal } ) => {
         }
     };
 
+    const handleLogin = async (e) => {
+        e.preventDefault();
+        const payload = {
+            email: account.email,
+            raw_password: account.password
+        };
+
+        try {
+            const response = await axios.post('http://babyhelm-api-svc.taila53571.ts.net/users/login', payload);
+            console.log('Login Response:', response.data);
+            const { access_token, refresh_token, token_type } = response.data;
+            localStorage.setItem('access_token', access_token);
+            localStorage.setItem('refresh_token', refresh_token);
+            localStorage.setItem('token_type', token_type);
+        } catch (error) {
+            console.error('Error:', error);
+        }
+    };
 
     const logInLink = () => {
         setAction('');
@@ -83,7 +101,7 @@ const Auth = ( { toggleAuthModal } ) => {
                         </div>
                         
                         <div className="babyhelm__auth-button">
-                            <button type='submit'>
+                            <button type='submit' onClick={handleLogin}>
                                 Log In
                             </button>
                         </div>
@@ -120,7 +138,7 @@ const Auth = ( { toggleAuthModal } ) => {
                             </div>
                         </div>
                         <div className="babyhelm__auth-button">
-                            <button type='submit' onClick={submitLink}>
+                            <button type='submit' onClick={handleSignup}>
                                 Sign Up
                             </button>
                         </div>
