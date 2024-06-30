@@ -1,0 +1,4 @@
+.feature-cards {
+    display: flex;
+    flex-direction: inline;
+}

@@ -1,10 +1,10 @@
-import React, { useState, useEffect } from "react"
+import React, { useState, useEffect, handleKeyDown } from "react"
 import axios from "axios"
+import { useNavigate } from 'react-router-dom'
 import logo from "../../assets/logo.svg"
 import mail from "../../assets/mail 1.png"
 import "./auth.css"
 const Auth = ( { toggleAuthModal } ) => {
-
     const handleKeyDown = (event) => {
         if (event.key === 'Escape') {
             toggleAuthModal();
@@ -39,6 +39,7 @@ const Auth = ( { toggleAuthModal } ) => {
             console.error('Error:', error);
         }
     };
+
 
     const handleLogin = async (e) => {
         e.preventDefault();

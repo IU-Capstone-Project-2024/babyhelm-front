@@ -1,7 +1,10 @@
 import React, { useState } from 'react'
-import { NavBar, Auth } from './components'
-import { Header, Whyus } from './containers'
+import { Route, BrowserRouter, Routes} from 'react-router-dom';
+import Home from './pages/Home/Home';
+import { NavBar, Auth } from './components';
 import './index.css'
+import Projects from './pages/Projects/Projects';
+import CreateProject from './pages/CreateProject/CreateProject';
 
 function App() {
 
@@ -13,10 +16,16 @@ function App() {
 
   return (
     <div className="App">
-      <NavBar toggleAuthModal={toggleAuthModal} />
-      {isAuthVisible && <Auth toggleAuthModal={toggleAuthModal} />}
-      <Header toggleAuthModal={toggleAuthModal} />
-      <Whyus />
+      <BrowserRouter>
+        <NavBar toggleAuthModal={toggleAuthModal} />
+        {isAuthVisible && <Auth toggleAuthModal={toggleAuthModal} />}
+      
+        <Routes>
+          <Route index element={<Home/>} />
+          <Route path='/projects' element={<Projects/>}/>
+          <Route path='/create-project' element={<CreateProject/>}/>
+        </Routes>
+      </BrowserRouter>
     </div>
   )
 }
