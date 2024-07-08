@@ -1,0 +1,53 @@
+.collaborators {
+    border: 2px solid #457EE5;
+    border-radius: 10px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+  }
+  
+  .collaborator {
+    display: flex;
+    align-items: center;
+  }
+  
+  .avatar {
+    font-size: 40px;
+    margin-right: 10px;
+  }
+  
+  .details {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+  }
+  
+  .role {
+    font-weight: bold;
+    margin: 0;
+    padding-bottom: 15px;
+    font-size: 20px;
+    font-weight: 700px;
+  }
+  
+  .name {
+    margin: 0;
+    font-size: 20px;
+    font-weight: 500px;
+    color: #666;
+  }
+  
+  .add-collaborator {
+    display: flex;
+    justify-content: center;
+    margin-bottom: -35px;
+  }
+  
+  .add-collaborator button {
+    font-size: 20px;
+    background: white;
+    border: 1px solid #d4d4d4;
+    border-radius: 50%;
+    cursor: pointer;
+  }

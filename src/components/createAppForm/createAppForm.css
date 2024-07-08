@@ -1,0 +1,124 @@
+.createAppForm {
+    align-items: center;
+    padding-left: 10%;
+    padding-top: 5%;
+  }
+  
+  .createAppForm-title {
+    margin-top: 0;
+    margin-bottom: 50px;
+    font-size: 36px;
+    font-weight: 400;
+    line-height: 43.57px;
+    text-align: left;
+
+  }
+  
+  .createAppForm-input-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+    width: 100%;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 19.36px;
+  }
+
+  .createAppForm-input-group label {
+    margin-bottom: 30px;
+  }
+  
+  .createAppForm-input::placeholder {
+    color: #00000066;
+  }
+  
+  .createAppForm-input-name {
+    font-size: 16px;
+    width: 50%;
+    padding: 5px;
+    background-color: transparent;
+    border-top: 0px;
+    border-left: 0px;
+    border-right: 0px;
+    border-bottom: 0.5px solid #303E88;
+  }
+  
+  .createAppForm-input-docker {
+    font-size: 16px;
+    width: 50%;
+    padding: 5px;
+    background-color: transparent;
+    border-top: 0px;
+    border-left: 0px;
+    border-right: 0px;
+    border-bottom: 0.5px solid #303E88;
+  }
+  
+  
+
+  .createAppForm-port-group {
+    display: flex;
+    gap: 50px;
+  }
+
+  .createAppForm-port-group .createAppForm-input-group{
+    width: 150px;
+  }
+  
+
+  .createAppForm-input-port {
+    font-size: 16px;
+    width: 80px;
+    padding: 5px;
+    background-color: transparent;
+    border-top: 0px;
+    border-left: 0px;
+    border-right: 0px;
+    border-bottom: 0.5px solid #303E88;
+  }
+  
+
+  .createAppForm-env-group {
+    display: flex;
+    gap: 50px;
+  }
+  
+  .createAppForm-input-env {
+    width: 80px;
+    margin-right: 60px;
+    font-size: 16px;
+    padding: 5px;
+    background-color: transparent;
+    border-top: 0px;
+    border-left: 0px;
+    border-right: 0px;
+    border-bottom: 0.5px solid #303E88;
+    margin-bottom: 10px;
+  }
+  
+  .createAppForm-add-env-btn {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    line-height: 28px;
+    font-size: 20px;
+    color: #333;
+    cursor: pointer;
+    margin-left: 14%;
+  }
+  
+  .createAppForm-button {
+    padding: 10px 40px;
+    background: #7285B5;
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 24.2px;
+    text-align: left;
+  }
+  

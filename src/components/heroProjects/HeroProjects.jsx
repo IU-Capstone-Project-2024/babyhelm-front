@@ -1,7 +1,7 @@
 import React from 'react';
-import './hero.css';
+import './heroProjects.css';
 import hero from '../../assets/hero.png'
-const Hero = () => {
+const HeroProjects = () => {
   return (
     <div className="hero-section">
       <div className="hero-content">
@@ -16,4 +16,4 @@ const Hero = () => {
   );
 }
 
-export default Hero;
+export default HeroProjects;

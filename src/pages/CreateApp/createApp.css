@@ -1,0 +1,38 @@
+.create-app {
+    display: flex;
+    height: 89vh;
+    margin: 0;
+    top: 0;
+}
+
+.create-app__close-block {
+    display: flex;
+    padding: 20px;
+}
+
+
+.create-app__left-block {
+    width: 45%;
+}
+
+.create-app__left-block-img {
+    padding: 30px;
+}
+
+.create-app__close-block img{
+    margin: 0;
+    width: 50px;
+    max-height: 50px;
+    top: 59.36px;
+    left: 26px;
+    gap: 0px;
+    opacity: 0px;
+    transform: rotate(45deg);
+}
+
+
+.create-app__form {
+    background: #EFF0F8;
+    width: 65%;
+    margin: 0;
+}

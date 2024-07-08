@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { Auth } from '../../components'
-import { Header, Whyus } from '../../containers'
+import { Header, Whyus } from '../../components'
 
 
 const Home = () => {

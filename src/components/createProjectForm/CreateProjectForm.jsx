@@ -34,7 +34,9 @@ const CreateProjectForm = () => {
         </div>
         
       </div>
-      <button type="submit" className="button">Continue</button>
+      <a href='/project'>
+        <button type="submit" className="button">Continue</button>
+      </a>
     </form>
   );
 };

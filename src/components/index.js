@@ -2,3 +2,11 @@ export {default as NavBar} from './navbar/NavBar'
 export {default as Auth} from './auth/Auth'
 export {default as FeatureCard} from './featureCard/FeatureCard'
 export {default as CreateProjectForm} from './createProjectForm/CreateProjectForm'
+export {default as Footer} from './footer/Footer';
+export {default as Header} from './header/Header';
+export {default as Whyus} from './whyus/Whyus'
+export {default as HeroProjects} from './heroProjects/HeroProjects'
+export {default as HeroProject} from './heroProject/HeroProject'
+export {default as Applications} from './applications/Applications'
+export {default as Collaborators} from './collaborators/Collaborators'
+export {default as CreateAppForm} from './createAppForm/CreateAppForm'

@@ -1,0 +1,26 @@
+.work-space {
+    padding: 5%;
+    padding-left: 10%;
+    display: flex;
+    gap: 200px;
+}
+
+.collaborators-block h1 {
+    display: flex;
+    justify-content: center;
+    padding-top: 30px;
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.applications-block h1 {
+    font-size: 32px;
+    font-weight: 700;
+}
+
+.line {
+    width: 150%;
+    height: 1px;
+    background: #457EE5;
+    margin: 20px 0;
+  }

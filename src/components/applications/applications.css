@@ -1,0 +1,74 @@
+.applications {
+    display: flex;
+    flex-direction: column;
+    width: 500px;
+    padding-top: 20px;
+  }
+
+
+  .application-info {
+    margin-top: 20px;
+    width: 100%;
+    padding-top: 20px;
+    padding-left: 20px;
+    padding-bottom: 10px;
+    padding-right: 10px;
+    border: 2px solid #A2BEF2;
+    border-radius: 10px;
+  }
+
+  .application-info label {
+    font-size: 20px;
+  }
+  
+  .application-name {
+    margin-bottom: 20px;
+  }
+
+  .select-wrapper {
+    display: flex;
+    background-image: url('../../assets/arrow.png');
+    background-repeat: no-repeat;
+    background-position: 97% 80%;
+  }
+  
+  .select-wrapper img {
+    translate: -20px 20px;
+    width: 20px;
+    height: 20px;
+  }
+
+  .application-name select {
+    background: transparent;
+    font-size: 24px;
+    outline: none;
+    width: 100%;
+    padding: 10px;
+    padding-left: 0px;
+    margin: 0;
+    border: none;
+    cursor: pointer;
+    appearance: none;
+  }
+
+  
+
+  .application-name .line {
+    margin: 0;
+    padding: 0;
+    height: 1px;
+    background-color: #457EE5;
+    width: 90%;
+  }
+  
+  .open-button {
+    background-color:#000957;
+    font-size: 25px;
+    font-weight: 500;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-left: 83%;
+  }

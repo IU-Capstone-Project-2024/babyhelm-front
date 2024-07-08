@@ -5,6 +5,8 @@ import { NavBar, Auth } from './components';
 import './index.css'
 import Projects from './pages/Projects/Projects';
 import CreateProject from './pages/CreateProject/CreateProject';
+import Project from './pages/Project/Project';
+import CreateApp from './pages/CreateApp/CreateApp';
 
 function App() {
 
@@ -24,6 +26,8 @@ function App() {
           <Route index element={<Home/>} />
           <Route path='/projects' element={<Projects/>}/>
           <Route path='/create-project' element={<CreateProject/>}/>
+          <Route path='/project' element={<Project/>}/>
+          <Route path='/create-app' element={<CreateApp/>}/>
         </Routes>
       </BrowserRouter>
     </div>

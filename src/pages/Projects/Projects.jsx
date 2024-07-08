@@ -1,5 +1,5 @@
 import React from 'react'
-import { Hero } from '../../containers'
+import { HeroProjects } from '../../components'
 import { FeatureCard } from '../../components'
 import leftcard from "../../assets/leftcard.png"
 import rightcard from "../../assets/rightcard.png"
@@ -8,7 +8,7 @@ import './projects.css'
 const Projects = () => {
   return (
     <>   
-        <Hero />
+        <HeroProjects />
         <div className="feature-cards">
             <FeatureCard
                 title="Create Applications"
