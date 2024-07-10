@@ -33,7 +33,7 @@ body {
     margin: auto;
 }
 
-.babyhelm__navbar-sign {
+.babyhelm__navbar-button {
     display: flex;
     justify-content: flex-end;
     align-items: center;
@@ -41,7 +41,7 @@ body {
     padding-right: 5%;
 }
 
-.babyhelm__navbar-sign button{
+.babyhelm__navbar-button button{
     display: flex;
     align-items: center;
     gap: 14px;
@@ -56,11 +56,57 @@ body {
     line-height: 24.2px;
 }
 
-.babyhelm__navbar-sign img{
+.babyhelm__navbar-button img{
     width: 24px;
     height: 24px;
     margin-left: 8px;
 }
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .dropdown button {
+    background-color: transparent;
+    box-shadow: none;
+    border: none;
+    justify-content: center;
+    border-bottom: 1px solid black;
+    border-radius: 0;
+    cursor: pointer;
+    font-size: 16px;
+    color: #333;
+    padding: 10px;
+  }
+  
+  .dropdown-content {
+    display: none;
+    border-bottom: 0.5px solid #000;
+    position: absolute;
+    background-color: #fff;
+    width: 100%
+  }
+  
+  .dropdown-content a {
+    display: block;
+    padding: 20px;
+    text-align: center;
+    text-decoration: none;
+    color: #333;
+  }
+  
+  .dropdown-content a:hover {
+    background-color:transparent;
+  }
+  
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
+  
+  .dropdown:hover button {
+    background-color: transparent;
+  }
 
 @media screen and (max-width: 1050px) {
     .babyhelm__header-content {

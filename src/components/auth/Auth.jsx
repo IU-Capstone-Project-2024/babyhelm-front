@@ -3,9 +3,13 @@ import axios from "axios";
 import { useNavigate } from 'react-router-dom';
 import logo from "../../assets/logo.svg";
 import mail from "../../assets/mail 1.png";
+import { useAuth } from '../../context/AuthContext';
 import "./auth.css";
 
 const Auth = ({ toggleAuthModal }) => {
+  const { login } = useAuth();
+  const navigate = useNavigate();
+
   const [action, setAction] = useState('');
   const [account, setAccount] = useState({
     name: "",
@@ -70,6 +74,9 @@ const Auth = ({ toggleAuthModal }) => {
       localStorage.setItem('refresh_token', refresh_token);
       localStorage.setItem('token_type', token_type);
       setMessage('Login successful!'); // Update the message state
+      login();
+      toggleAuthModal();
+      navigate('/projects');
     } catch (error) {
       console.error('Error:', error);
       setMessage('Login failed. Please try again.');
