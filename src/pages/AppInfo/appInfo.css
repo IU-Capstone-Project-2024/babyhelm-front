@@ -1,0 +1,16 @@
+.appInfo {
+    display: flex;
+    height: 89vh;
+}
+
+.appInfo__left-block {
+    background: #EFF0F8;
+    max-width: 45%;
+    padding: 5%;
+}
+
+.appInfo__right-block {
+    padding: 5%;
+    padding-left: 3%;
+}
+

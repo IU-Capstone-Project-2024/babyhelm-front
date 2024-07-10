@@ -7,6 +7,7 @@ import Projects from './pages/Projects/Projects';
 import CreateProject from './pages/CreateProject/CreateProject';
 import Project from './pages/Project/Project';
 import CreateApp from './pages/CreateApp/CreateApp';
+import AppInfo from './pages/AppInfo/AppInfo'
 
 function App() {
 
@@ -28,6 +29,7 @@ function App() {
           <Route path='/create-project' element={<CreateProject/>}/>
           <Route path='/project' element={<Project/>}/>
           <Route path='/create-app' element={<CreateApp/>}/>
+          <Route path='/app-info' element={<AppInfo />}/>
         </Routes>
       </BrowserRouter>
     </div>
