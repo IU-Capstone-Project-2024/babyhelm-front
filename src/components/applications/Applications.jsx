@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import './applications.css';
+import { useNavigate, useParams } from 'react-router-dom';
 
 const Applications = ({ applications }) => {
   const [selectedApp, setSelectedApp] = useState(applications.length > 0 ? applications[0].name : '');
@@ -9,7 +10,15 @@ const Applications = ({ applications }) => {
     setSelectedApp(event.target.value);
   };
 
+  const { projectName } = useParams();
+
+  const navigate = useNavigate()
+
   const selectedApplication = applications.find(app => app.name === selectedApp);
+
+  const handleOpenApp = () => {
+    navigate(`/project/${projectName}/${selectedApp}`);
+  }
 
   return (
     <div className="applications">
@@ -31,7 +40,7 @@ const Applications = ({ applications }) => {
           <p>{selectedApplication.link || 'No link available'}</p>
           <label htmlFor="dashboard-link">Link to your monitoring dashboard:</label>
           <p>{selectedApplication.dashboardLink || 'No link available'}</p>
-          <button className="open-button">Open</button>
+          <button className="open-button" onClick={handleOpenApp}>Open</button>
         </div>
       )}
     </div>

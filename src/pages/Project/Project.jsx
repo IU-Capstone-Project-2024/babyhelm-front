@@ -7,7 +7,6 @@ import './project.css';
 const Project = () => {
   const { projectName } = useParams();
   const [projectData, setProjectData] = useState(null);
-  console.log(projectName);
   useEffect(() => {
     const fetchProjectData = async () => {
       const access_token = localStorage.getItem('access_token');
@@ -21,7 +20,7 @@ const Project = () => {
       console.log(access_token)
 
       try {
-        const api = `http://babyhelm-api-svc.taila53571.ts.net/cluster/projects/{project-name}?project_name=${projectName}`;
+        const api = `http://babyhelm-api-svc.taila53571.ts.net/cluster/projects/${projectName}`;
         const response = await axios.get(api, {
           headers: {
             'accept': 'application/json',

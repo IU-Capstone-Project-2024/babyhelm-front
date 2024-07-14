@@ -20,7 +20,9 @@
     margin-bottom: 20px;
   }
 
-  
+  .appInfoBlock-title span {
+    cursor: pointer;
+  }
 
   .appInfoBlock h3 {
     max-width: fit-content;

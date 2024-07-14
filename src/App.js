@@ -28,7 +28,7 @@ function App() {
           <Route path='/create-project' element={<CreateProject />} />
           <Route path='/project/:projectName' element={<Project />} />
           <Route path='/project/:projectName/create-app' element={<CreateApp />} />
-          <Route path='/app-info' element={<AppInfo />} />
+          <Route path='/project/:projectName/:appName' element={<AppInfo />} />
         </Routes>
       </BrowserRouter>
     </div>
