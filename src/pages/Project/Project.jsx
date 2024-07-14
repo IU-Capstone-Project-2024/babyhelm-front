@@ -21,7 +21,7 @@ const Project = () => {
       console.log(access_token)
 
       try {
-        const api = `http://babyhelm-api-svc.taila53571.ts.net/cluster/projects/{project-name}?project_name=${projectName}`;
+        const api = `http://babyhelm-api-svc.taila53571.ts.net/cluster/projects/${projectName}`;
         const response = await axios.get(api, {
           headers: {
             'accept': 'application/json',

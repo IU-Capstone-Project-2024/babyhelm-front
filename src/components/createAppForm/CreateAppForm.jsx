@@ -45,7 +45,7 @@ const CreateAppForm = () => {
     console.log(payload)
     
     try {
-      const response = await axios.post('http://babyhelm-api-svc.taila53571.ts.net/cluster/applications/${project-name}', payload, {
+      const response = await axios.post(`http://babyhelm-api-svc.taila53571.ts.net/cluster/applications/${project-name}`, payload, {
         headers: {
           'accept': 'application/json',
           'Authorization': `${token_type} ${access_token}`,
