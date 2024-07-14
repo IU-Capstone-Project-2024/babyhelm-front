@@ -1,26 +1,51 @@
-import React from 'react'
-import './applications.css'
-const Applications = () => {
-    return (
-        <div className="applications">
-          <div className="application-name">
-            <div className="select-wrapper">
-              <select id="application-name">
-                <option value="app1">App 1</option>
-                <option value="app2">App 2</option>
-              </select>
-            </div>
-            <div className='line'/>
-          </div>
-            <div className='application-info'>
-              <label htmlFor="product-link">Link to your product:</label>
-              <p>some text</p>
-              <label htmlFor="dashboard-link">Link to your monitoring dashboard:</label>
-              <p>some text</p>
-              <button className="open-button">Open</button>
-            </div>
-        </div>
-      );
-}
+import React, { useState } from 'react';
+import PropTypes from 'prop-types';
+import './applications.css';
 
-export default Applications
+const Applications = ({ applications }) => {
+  const [selectedApp, setSelectedApp] = useState(applications.length > 0 ? applications[0].name : '');
+
+  const handleChange = (event) => {
+    setSelectedApp(event.target.value);
+  };
+
+  const selectedApplication = applications.find(app => app.name === selectedApp);
+
+  return (
+    <div className="applications">
+      <div className="application-name">
+        <div className="select-wrapper">
+          <select id="application-name" value={selectedApp} onChange={handleChange}>
+            {applications.map(app => (
+              <option key={app.name} value={app.name}>
+                {app.name}
+              </option>
+            ))}
+          </select>
+        </div>
+        <div className='line'/>
+      </div>
+      {selectedApplication && (
+        <div className='application-info'>
+          <label htmlFor="product-link">Link to your product:</label>
+          <p>{selectedApplication.link || 'No link available'}</p>
+          <label htmlFor="dashboard-link">Link to your monitoring dashboard:</label>
+          <p>{selectedApplication.dashboardLink || 'No link available'}</p>
+          <button className="open-button">Open</button>
+        </div>
+      )}
+    </div>
+  );
+};
+
+Applications.propTypes = {
+  applications: PropTypes.arrayOf(
+    PropTypes.shape({
+      name: PropTypes.string.isRequired,
+      link: PropTypes.string,
+      dashboardLink: PropTypes.string
+    })
+  ).isRequired
+};
+
+export default Applications;

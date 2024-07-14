@@ -1,6 +1,7 @@
 // src/context/AuthContext.js
 
 import React, { createContext, useState, useEffect, useContext } from 'react';
+import axios from 'axios';
 
 const AuthContext = createContext();
 
@@ -23,6 +24,8 @@ export const AuthProvider = ({ children }) => {
     setIsLoggedIn(false);
     localStorage.setItem('isLoggedIn', 'false');
   };
+
+  
 
   return (
     <AuthContext.Provider value={{ isLoggedIn, login, logout }}>

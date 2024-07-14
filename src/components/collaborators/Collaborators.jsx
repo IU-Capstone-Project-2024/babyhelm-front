@@ -1,22 +1,35 @@
-import React from 'react'
-import './collaborators.css'
-const Collaborators = () => {
-    return (
-      <div className="collaborators">
-        <div className="collaborator">
-            <div className="avatar">
-                <span role="img" aria-label="user">👤</span>
-            </div>
-            <div className="details">
-                <p className="role">Admin</p>
-                <p className="name">Name Surname (you)</p>
+import React from 'react';
+import PropTypes from 'prop-types';
+import './collaborators.css';
+
+const Collaborators = ({ users }) => {
+  return (
+    <div className="collaborators">
+      {users.map(user => (
+        <div key={user.id} className="collaborator">
+          <div className="avatar">
+            <span role="img" aria-label="user">👤</span>
+          </div>
+          <div className="details">
+            <p className="role">Collaborator</p> {/* Adjust role dynamically if needed */}
+            <p className="name">{user.email}</p>
           </div>
         </div>
-        <div className="add-collaborator">
-            <button>+</button>
-        </div>
+      ))}
+      <div className="add-collaborator">
+        <button>+</button>
+      </div>
     </div>
-    );
-}
+  );
+};
 
-export default Collaborators
+Collaborators.propTypes = {
+  users: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number.isRequired,
+      email: PropTypes.string.isRequired
+    })
+  ).isRequired
+};
+
+export default Collaborators;

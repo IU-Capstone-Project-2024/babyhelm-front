@@ -1,16 +1,15 @@
-import React, { useState } from 'react'
-import { Route, BrowserRouter, Routes} from 'react-router-dom';
+import React, { useState } from 'react';
+import { Route, BrowserRouter, Routes } from 'react-router-dom';
 import Home from './pages/Home/Home';
 import { NavBar, Auth } from './components';
-import './index.css'
+import './index.css';
 import Projects from './pages/Projects/Projects';
 import CreateProject from './pages/CreateProject/CreateProject';
 import Project from './pages/Project/Project';
 import CreateApp from './pages/CreateApp/CreateApp';
-import AppInfo from './pages/AppInfo/AppInfo'
+import AppInfo from './pages/AppInfo/AppInfo';
 
 function App() {
-
   const [isAuthVisible, setAuthVisible] = useState(false);
 
   const toggleAuthModal = () => {
@@ -24,17 +23,16 @@ function App() {
         {isAuthVisible && <Auth toggleAuthModal={toggleAuthModal} />}
       
         <Routes>
-          <Route index element={<Home/>} />
-          <Route path='/projects' element={<Projects/>}/>
-          <Route path='/create-project' element={<CreateProject/>}/>
-          <Route path='/project' element={<Project/>}/>
-          <Route path='/create-app' element={<CreateApp/>}/>
-          <Route path='/app-info' element={<AppInfo />}/>
+          <Route index element={<Home />} />
+          <Route path='/projects' element={<Projects />} />
+          <Route path='/create-project' element={<CreateProject />} />
+          <Route path='/project/:projectName' element={<Project />} />
+          <Route path='/project/:projectName/create-app' element={<CreateApp />} />
+          <Route path='/app-info' element={<AppInfo />} />
         </Routes>
       </BrowserRouter>
     </div>
-  )
+  );
 }
 
-export default App
-
+export default App;

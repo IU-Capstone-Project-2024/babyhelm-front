@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import axios from 'axios';
 import './createAppForm.css';
 
 const CreateAppForm = () => {
@@ -18,14 +19,49 @@ const CreateAppForm = () => {
     setEnvVariables([...envVariables, { name: '', value: '' }]);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Add form submission logic here
-    console.log('App Name:', appName);
-    console.log('Docker Image Link:', dockerImageLink);
-    console.log('External Port:', externalPort);
-    console.log('Target Port:', targetPort);
-    console.log('Environment Variables:', envVariables);
+    
+    const access_token = localStorage.getItem('access_token');
+    const token_type = localStorage.getItem('token_type') || 'Bearer';
+
+    if (!access_token) {
+      console.error('No access token found');
+      return;
+    }
+
+    const payload = {
+      "application": {
+        "name": appName,
+        "image": dockerImageLink,
+        "ports": {
+          "port": parseInt(externalPort, 10),
+          "targetPort": parseInt(targetPort, 10)
+        },
+        "envs": envVariables
+      }
+    };
+
+    console.log(payload)
+    
+    try {
+      const response = await axios.post('http://babyhelm-api-svc.taila53571.ts.net/cluster/applications/${project-name}', payload, {
+        headers: {
+          'accept': 'application/json',
+          'Authorization': `${token_type} ${access_token}`,
+          'Content-Type': 'application/json'
+        }
+      });
+
+      console.log('Application created:', response.data);
+      
+      // Redirect or update UI after successful creation
+      // For example, redirect to the application's page
+      window.location.href = `/app/${encodeURIComponent(response.data.application.name)}`;
+
+    } catch (error) {
+      console.error('Error creating application:', error);
+    }
   };
 
   return (
@@ -59,7 +95,7 @@ const CreateAppForm = () => {
             placeholder="Default 80"
             value={externalPort}
             onChange={(e) => setExternalPort(e.target.value)}
-            className="createAppForm-input createAppForm-input-port"
+          className="createAppForm-input createAppForm-input-port"
           />
         </div>
         <div className="createAppForm-input-group">
@@ -69,7 +105,7 @@ const CreateAppForm = () => {
             placeholder="Default 80"
             value={targetPort}
             onChange={(e) => setTargetPort(e.target.value)}
-            className="createAppForm-input createAppForm-input-port"
+          className="createAppForm-input createAppForm-input-port"
           />
         </div>
       </div>
@@ -99,7 +135,7 @@ const CreateAppForm = () => {
           +
         </button>
       </div>
-      <button type="submit" className="createAppForm-button">Send form</button>
+      <button type="submit" onSubmit={handleSubmit} className="createAppForm-button">Send form</button>
     </form>
   );
 };

@@ -1,19 +1,52 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 import './navbar.css';
 import logo from '../../assets/logo.svg';
 import unlock from '../../assets/unlock 1.svg';
 import { useAuth } from '../../context/AuthContext';
-
-// Mock project data
-const mockProjects = [
-  { id: 1, name: 'Project A' },
-  { id: 2, name: 'Project B' },
-  { id: 3, name: 'Project C' }
-];
+import { useNavigate } from 'react-router-dom';
 
 const NavBar = ({ toggleAuthModal }) => {
-  const { isLoggedIn, logout } = useAuth();
+  const { isLoggedIn } = useAuth();
   const [showProjects, setShowProjects] = useState(false);
+  const [projects, setProjects] = useState([]);
+  const navigate = useNavigate()
+
+  useEffect(() => {
+    const fetchProjects = async () => {
+      const access_token = localStorage.getItem('access_token');
+      const token_type = localStorage.getItem('token_type') || 'Bearer';
+
+      if (!access_token) {
+        console.error('No access token found');
+        return;
+      }
+
+      try {
+        const response = await axios.get('http://babyhelm-api-svc.taila53571.ts.net/cluster/projects', {
+          headers: {
+            'accept': 'application/json',
+            'Authorization': `${token_type} ${access_token}`
+          }
+        });
+        
+        const projectsData = response.data.map((project) => ({
+          name: project.name
+        }));
+
+        setProjects(projectsData);
+
+        console.log('Projects data fetched')
+        console.log(projectsData)
+      } catch (error) {
+        console.error('Error fetching projects:', error);
+      }
+    };
+
+    if (isLoggedIn) {
+      fetchProjects();
+    }
+  }, [isLoggedIn]);
 
   const handleMouseEnter = () => {
     setShowProjects(true);
@@ -21,6 +54,10 @@ const NavBar = ({ toggleAuthModal }) => {
 
   const handleMouseLeave = () => {
     setShowProjects(false);
+  };
+
+  const handleClick = () => {
+    navigate('/projects')
   };
 
   return (
@@ -36,13 +73,15 @@ const NavBar = ({ toggleAuthModal }) => {
           <div className="dropdown"
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}>
-            <button type="button">
+            <button type="button" onClick={handleClick}>
               My Projects
             </button>
             {showProjects && (
               <div className="dropdown-content">
-                {mockProjects.map(project => (
-                  <a key={project.id} href={`/project/${project.id}`}>
+                {projects.map(project => (
+                  <a 
+                    key={project.name} 
+                    href={`/project/${encodeURIComponent(project.name)}`}>
                     {project.name}
                   </a>
                 ))}
