@@ -7,7 +7,6 @@ import './project.css';
 const Project = () => {
   const { projectName } = useParams();
   const [projectData, setProjectData] = useState(null);
-  console.log(projectName);
   useEffect(() => {
     const fetchProjectData = async () => {
       const access_token = localStorage.getItem('access_token');

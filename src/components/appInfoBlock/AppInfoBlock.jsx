@@ -1,7 +1,9 @@
 import React from 'react';
+import axios from 'axios';
 import './appInfoBlock.css';
+import { useParams } from 'react-router-dom';
 
-const appInfoBlock = ({
+const AppInfoBlock = ({
   appName = "Application name",
   dockerImageLink = "<registry>/<image>:<tag>",
   externalPort = "80",
@@ -12,9 +14,44 @@ const appInfoBlock = ({
     { name: "NAME3", value: "VALUE3" },
   ],
 }) => {
+
+  const { projectName } = useParams();
+
+  const handleRestart = async(e) => {
+    e.preventDefault();
+    
+    const access_token = localStorage.getItem('access_token');
+    const token_type = localStorage.getItem('token_type') || 'Bearer';
+
+    console.log(access_token)
+
+    if (!access_token) {
+      console.error('No access token found');
+      return;
+    }
+
+    try {
+      const response = await axios.patch(
+        `http://babyhelm-api-svc.taila53571.ts.net/cluster/applications/${projectName}/${appName}/restart`, 
+        {}, // Empty data object for PATCH request
+        {
+          headers: {
+            'accept': 'application/json',
+            'Authorization': `${token_type} ${access_token}`
+          }
+        }
+      );
+
+      console.log('Application restarted', response.data);
+
+    } catch (error) {
+      console.error('Error restart', error);
+    }
+
+  }
   return (
     <div className="appInfoBlock">
-      <h2 className="appInfoBlock-title">{appName} <span role="img" aria-label="sync">🔄</span></h2>
+      <h2 className="appInfoBlock-title">{appName} <span role="img" aria-label="sync" onClick={handleRestart}>🔄</span></h2>
       <table className="appInfoBlock-info-table">
         <thead>
           <tr>
@@ -46,4 +83,4 @@ const appInfoBlock = ({
   );
 };
 
-export default appInfoBlock;
+export default AppInfoBlock;

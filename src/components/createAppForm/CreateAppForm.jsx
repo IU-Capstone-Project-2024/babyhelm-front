@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import {useNavigate, useParams} from 'react-router-dom'
 import './createAppForm.css';
 
 const CreateAppForm = () => {
@@ -8,6 +9,10 @@ const CreateAppForm = () => {
   const [externalPort, setExternalPort] = useState('');
   const [targetPort, setTargetPort] = useState('');
   const [envVariables, setEnvVariables] = useState([{ name: '', value: '' }]);
+
+  const navigate = useNavigate();
+  
+  const { projectName } = useParams();
 
   const handleEnvChange = (index, e) => {
     const values = [...envVariables];
@@ -44,8 +49,8 @@ const CreateAppForm = () => {
 
     console.log(payload)
     
-    try { // TODO Женя, тут надо получить имя проекта и вставить его
-      const response = await axios.post(`http://babyhelm-api-svc.taila53571.ts.net/cluster/applications/TODO-insert-project-name-here`, payload, {
+    try {
+      const response = await axios.post(`http://babyhelm-api-svc.taila53571.ts.net/cluster/applications/${projectName}`, payload, {
         headers: {
           'accept': 'application/json',
           'Authorization': `${token_type} ${access_token}`,
@@ -55,9 +60,7 @@ const CreateAppForm = () => {
 
       console.log('Application created:', response.data);
       
-      // Redirect or update UI after successful creation
-      // For example, redirect to the application's page
-      window.location.href = `/app/${encodeURIComponent(response.data.application.name)}`;
+      navigate(`/project/${projectName}/${encodeURIComponent(response.data.name)}`);
 
     } catch (error) {
       console.error('Error creating application:', error);
