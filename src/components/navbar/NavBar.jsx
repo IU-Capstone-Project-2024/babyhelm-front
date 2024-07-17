@@ -3,14 +3,15 @@ import axios from 'axios';
 import './navbar.css';
 import logo from '../../assets/logo.svg';
 import unlock from '../../assets/unlock 1.svg';
+import logoutIcon from '../../assets/logout.png'; // Assuming you have moved the image to the appropriate location in your project
 import { useAuth } from '../../context/AuthContext';
 import { useNavigate } from 'react-router-dom';
 
 const NavBar = ({ toggleAuthModal }) => {
-  const { isLoggedIn } = useAuth();
+  const { isLoggedIn, logout } = useAuth(); // Assuming `logout` method is provided by AuthContext
   const [showProjects, setShowProjects] = useState(false);
   const [projects, setProjects] = useState([]);
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchProjects = async () => {
@@ -29,15 +30,15 @@ const NavBar = ({ toggleAuthModal }) => {
             'Authorization': `${token_type} ${access_token}`
           }
         });
-        
+
         const projectsData = response.data.map((project) => ({
           name: project.name
         }));
 
         setProjects(projectsData);
 
-        console.log('Projects data fetched')
-        console.log(projectsData)
+        console.log('Projects data fetched');
+        console.log(projectsData);
       } catch (error) {
         console.error('Error fetching projects:', error);
       }
@@ -57,7 +58,12 @@ const NavBar = ({ toggleAuthModal }) => {
   };
 
   const handleClick = () => {
-    navigate('/projects')
+    navigate('/projects');
+  };
+
+  const handleLogout = () => {
+    logout();
+    navigate('/'); // Redirect to home page after logout
   };
 
   return (
@@ -70,26 +76,31 @@ const NavBar = ({ toggleAuthModal }) => {
       </div>
       <div className='babyhelm__navbar-button'>
         {isLoggedIn ? (
-          <div className="dropdown"
-            onMouseEnter={handleMouseEnter}
-            onMouseLeave={handleMouseLeave}>
-            <button type="button" onClick={handleClick}>
-              My Projects
+          <>
+            <div className="dropdown"
+              onMouseEnter={handleMouseEnter}
+              onMouseLeave={handleMouseLeave}>
+              <button type="button" onClick={handleClick}>
+                My Projects
+              </button>
+              {showProjects && (
+                <div className="dropdown-content">
+                  {projects.map(project => (
+                    <a
+                      key={project.name}
+                      href={`/project/${encodeURIComponent(project.name)}`}>
+                      {project.name}
+                    </a>
+                  ))}
+                </div>
+              )}
+            </div>
+            <button type="button" className="logout-button" onClick={handleLogout}>
+              <img src={logoutIcon} alt="Logout" />
             </button>
-            {showProjects && (
-              <div className="dropdown-content">
-                {projects.map(project => (
-                  <a 
-                    key={project.name} 
-                    href={`/project/${encodeURIComponent(project.name)}`}>
-                    {project.name}
-                  </a>
-                ))}
-              </div>
-            )}
-          </div>
+          </>
         ) : (
-          <button type="button" onClick={toggleAuthModal}>
+          <button type="button" className='login-button' onClick={toggleAuthModal}>
             <img src={unlock} alt='unlock' />
             Log in
           </button>
