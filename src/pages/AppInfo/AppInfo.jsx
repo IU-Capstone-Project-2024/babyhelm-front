@@ -70,7 +70,9 @@ const AppInfo = () => {
           dockerImageLink={appData.image}
           externalPort={mockAppData.externalPort} // Assuming these are constants or fetched from another source
           targetPort={mockAppData.targetPort}     // Assuming these are constants or fetched from another source
-          envVariables={mockAppData.envVariables} // Assuming these are constants or fetched from another source
+          envVariables={appData.envs}
+          deploymentLink={appData.deployment_link}
+          dashbordLink={appData.dashbord_link}
         />
       </div>
     </div>

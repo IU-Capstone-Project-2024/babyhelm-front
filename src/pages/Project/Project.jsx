@@ -17,7 +17,6 @@ const Project = () => {
         return;
       }
       
-      console.log(access_token)
 
       try {
         const api = `http://babyhelm-api-svc.taila53571.ts.net/cluster/projects/${projectName}`;
@@ -27,7 +26,7 @@ const Project = () => {
             'Authorization': `${token_type} ${access_token}`
           }
         });
-
+        
         setProjectData(response.data);
       } catch (error) {
         console.error('Error fetching project data:', error);

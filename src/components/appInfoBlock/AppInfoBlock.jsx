@@ -4,15 +4,11 @@ import './appInfoBlock.css';
 import { useParams } from 'react-router-dom';
 
 const AppInfoBlock = ({
-  appName = "Application name",
-  dockerImageLink = "<registry>/<image>:<tag>",
-  externalPort = "80",
-  targetPort = "80",
-  envVariables = [
-    { name: "NAME1", value: "VALUE1" },
-    { name: "NAME2", value: "VALUE2" },
-    { name: "NAME3", value: "VALUE3" },
-  ],
+  appName,
+  dockerImageLink,
+  externalPort,
+  targetPort,
+  envVariables,
 }) => {
 
   const { projectName } = useParams();
@@ -33,7 +29,7 @@ const AppInfoBlock = ({
     try {
       const response = await axios.patch(
         `http://babyhelm-api-svc.taila53571.ts.net/cluster/applications/${projectName}/${appName}/restart`, 
-        {}, // Empty data object for PATCH request
+        {},
         {
           headers: {
             'accept': 'application/json',
