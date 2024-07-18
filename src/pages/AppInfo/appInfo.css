@@ -7,10 +7,10 @@
     background: #EFF0F8;
     max-width: 45%;
     padding: 5%;
+    align-content: center;
 }
 
 .appInfo__right-block {
-    padding: 5%;
-    padding-left: 3%;
+    padding: 3%;
 }
 

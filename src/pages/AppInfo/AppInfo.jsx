@@ -72,7 +72,7 @@ const AppInfo = () => {
           targetPort={mockAppData.targetPort}     // Assuming these are constants or fetched from another source
           envVariables={appData.envs}
           deploymentLink={appData.deployment_link}
-          dashbordLink={appData.dashbord_link}
+          dashboardLink={appData.dashboard_link}
         />
       </div>
     </div>

@@ -67,10 +67,22 @@ const Applications = ({ applications }) => {
       </div>
       {selectedApplication && (
         <div className='application-info'>
-          <label htmlFor="product-link">Link to your product:</label>
-          <p>{(appData && appData.deployment_link) || selectedApplication.deployment_link || 'No link available'}</p>
-          <label htmlFor="dashboard-link">Link to your monitoring dashboard:</label>
-          <p>{(appData && appData.dashboard_link) || selectedApplication.dashboard_link || 'No link available'}</p>
+            <label htmlFor="deployment-link">Link to app:</label>
+            <p>
+              {((appData && appData.deployment_link) || selectedApplication.deployment_link) 
+                ? <a href={(appData && appData.deployment_link) || selectedApplication.deployment_link} target="_blank" rel="noopener noreferrer">
+                    {(appData && appData.deployment_link) || selectedApplication.deployment_link}
+                  </a> 
+                : 'No link available'}
+            </p>
+            <label htmlFor="dashboard-link">Link to your monitoring dashboard:</label>
+            <p>
+              {((appData && appData.dashboard_link) || selectedApplication.dashboard_link) 
+                ? <a href={(appData && appData.dashboard_link) || selectedApplication.dashboard_link} target="_blank" rel="noopener noreferrer">
+                    {(appData && appData.dashboard_link) || selectedApplication.dashboard_link}
+                  </a> 
+                : 'No link available'}
+            </p>
           <button className="open-button" onClick={handleOpenApp}>Open</button>
         </div>
       )}
