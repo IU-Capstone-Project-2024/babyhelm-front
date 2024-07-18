@@ -13,7 +13,7 @@ body {
 .babyhelm__navbar_logo {
   margin-right: 1rem;
   padding-left: 5%;
-  height: 40px;
+  height: 60px;
 }
 
 .babyhelm__navbar_title {
@@ -67,17 +67,18 @@ body {
   background-color: #000080; /* Dark blue background */
   border: none; /* Remove border */
   border-radius: 10px; /* Rounded corners */
-  width: 46px; /* Set width to make it a square button */
-  height: 46px; /* Set height to make it a square button */
+  width: 40px; /* Set width to make it a square button */
+  height: 40px; /* Set height to make it a square button */
   display: flex;
   align-items: center;
   justify-content: center;
+  padding-right: 12px;
   cursor: pointer;
 }
 
 .logout-button img {
-  width: 24px;
-  height: 24px;
+  width: 20px;
+  height: 20px;
 }
 
 .dropdown {
@@ -96,6 +97,7 @@ body {
   font-size: 16px;
   color: #333;
   padding: 10px;
+  width: 140px;
 }
 
 .dropdown-content {
