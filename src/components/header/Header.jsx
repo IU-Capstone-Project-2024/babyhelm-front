@@ -10,6 +10,7 @@ const Header = ( { toggleAuthModal } ) =>  {
   const handleGetStarted = () => {
     if (!isLoggedIn) {
       toggleAuthModal()
+      return;
     }
     navigate('/projects')
   }
