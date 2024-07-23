@@ -75,6 +75,7 @@ const NavBar = ({ toggleAuthModal }) => {
         <a href="/">Babyhelm</a>
       </div>
       <div className='babyhelm__navbar-button'>
+        <a href='/about'><button type='button' className='about-button'>About</button></a>
         {isLoggedIn ? (
           <>
             <div className="dropdown"

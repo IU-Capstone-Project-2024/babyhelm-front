@@ -8,6 +8,7 @@ import CreateProject from './pages/CreateProject/CreateProject';
 import Project from './pages/Project/Project';
 import CreateApp from './pages/CreateApp/CreateApp';
 import AppInfo from './pages/AppInfo/AppInfo';
+import About from './pages/About/About';
 
 function App() {
   const [isAuthVisible, setAuthVisible] = useState(false);
@@ -29,6 +30,7 @@ function App() {
           <Route path='/project/:projectName' element={<Project />} />
           <Route path='/project/:projectName/create-app' element={<CreateApp />} />
           <Route path='/project/:projectName/:appName' element={<AppInfo />} />
+          <Route path='/about' element={<About />} />
         </Routes>
       </BrowserRouter>
     </div>
